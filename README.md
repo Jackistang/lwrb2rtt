@@ -1,32 +1,44 @@
-# Lightweight ring buffer manager
+# 1. 介绍
 
-Library provides generic FIFO ring buffer implementation.
+lwrb2rtt 是一个轻量级的环形缓冲区管理软件包，提供了通用的 FIFO 环形缓冲区实现。
 
-<h3>Read first: <a href="http://docs.majerle.eu/projects/lwrb/">Documentation</a></h3>
+此项目是完成开源的 lwrb 与 rt-thread 的匹配。
 
-## Features
+原工程地址：https://github.com/MaJerle/lwrb/tree/develop
 
-* Written in ANSI C99, compatible with ``size_t`` for size data types
-* Platform independent, no architecture specific code
-* FIFO (First In First Out) buffer implementation
-* No dynamic memory allocation, data is static array
-* Uses optimized memory copy instead of loops to read/write data from/to memory
-* Thread safe when used as pipe with single write and single read entries
-* Interrupt safe when used as pipe with single write and single read entries
-* Suitable for DMA transfers from and to memory with zero-copy overhead between buffer and application memory
-* Supports data peek, skip for read and advance for write
-* Implements support for event notifications
-* User friendly MIT license
+## 1.1 特点
 
-## Contribute
+- 用 ANSI C99 编写，与 `size_t` 大小的数据类型兼容。
+- 具有平台独立性，无与硬件耦合代码。
+- FIFO （先进先出）缓冲区的实现。
+- 无动态内存申请，数据存储在静态数组里。
+- 使用效率更高的内存复制，而不是循环地从内存读取数据或向内存写入数据。
+- 当用作管道，即只有一个写端口和一个读端口时是线程安全的。
+- 当用作管道，即只有一个写端口和一个读端口时是中断安全的。
+- 适用于 DMA 传输，缓冲区和应用程序内存之间的复制开销为 0 。
+- 支持数据预览，跳过读取和前进写入。
+- 支持事件通知
+- 对用户友好的 MIT 许可证。
 
-Fresh contributions are always welcome. Simple instructions to proceed::
+## 1.2 目录结构
 
-1. Fork Github repository
-2. Respect [C style & coding rules](https://github.com/MaJerle/c-code-style) used by the library
-3. Create a pull request to develop branch with new features or bug fixes
+| 名称     | 说明             |
+| -------- | ---------------- |
+| examples | 例程目录         |
+| lwrb     | 原 lwrb 工程目录 |
 
-Alternatively you may:
+## 1.3 许可证
 
-1. Report a bug
-2. Ask for a feature request
+lwrb2rtt 遵循 MIT 许可。
+
+## 1.4 依赖
+
+无依赖
+
+# 2. 如何使用 lwrb2rtt
+
+# 3. 联系方式 & 感谢
+
+- 维护：Jackistang
+- 主页：[https://github.com/Jackistang](https://github.com/Jackistang)
+- 邮箱：tangjia.jackis@qq.com
