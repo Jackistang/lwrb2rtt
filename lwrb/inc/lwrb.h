@@ -31,8 +31,8 @@
  * Author:          Tilen MAJERLE <tilen@majerle.eu>
  * Version:         v2.0.1
  */
-#ifndef LWRB_HDR_H
-#define LWRB_HDR_H
+#ifndef __LWRB_HDR_H__
+#define __LWRB_HDR_H__
 
 #include <string.h>
 #include <stdint.h>
@@ -62,7 +62,8 @@ extern "C" {
 /**
  * \brief           Event type for buffer operations
  */
-typedef enum {
+typedef enum
+{
     LWRB_EVT_READ,                              /*!< Read event */
     LWRB_EVT_WRITE,                             /*!< Write event */
     LWRB_EVT_RESET,                             /*!< Reset event */
@@ -79,16 +80,17 @@ struct lwrb;
  * \param[in]       evt: Event type
  * \param[in]       bp: Number of bytes written or read (when used), depends on event type
  */
-typedef void (*lwrb_evt_fn)(LWRB_VOLATILE struct lwrb* buff, lwrb_evt_type_t evt, size_t bp);
+typedef void (*lwrb_evt_fn)(LWRB_VOLATILE struct lwrb *buff, lwrb_evt_type_t evt, size_t bp);
 
 /**
  * \brief           Buffer structure
  */
-typedef struct lwrb {
+typedef struct lwrb
+{
 #if LWRB_USE_MAGIC
     uint32_t magic1;                            /*!< Magic 1 word */
 #endif /* LWRB_USE_MAGIC */
-    uint8_t* buff;                              /*!< Pointer to buffer data.
+    uint8_t *buff;                              /*!< Pointer to buffer data.
                                                     Buffer is considered initialized when `buff != NULL` and `size > 0` */
     size_t size;                                /*!< Size of buffer data. Size of actual buffer is `1` byte less than value holds */
     size_t r;                                   /*!< Next read pointer. Buffer is considered empty when `r == w` and full when `w == r - 1` */
@@ -99,30 +101,30 @@ typedef struct lwrb {
 #endif /* LWRB_USE_MAGIC */
 } lwrb_t;
 
-uint8_t     lwrb_init(LWRB_VOLATILE lwrb_t* buff, void* buffdata, size_t size);
-uint8_t     lwrb_is_ready(LWRB_VOLATILE lwrb_t* buff);
-void        lwrb_free(LWRB_VOLATILE lwrb_t* buff);
-void        lwrb_reset(LWRB_VOLATILE lwrb_t* buff);
-void        lwrb_set_evt_fn(LWRB_VOLATILE lwrb_t* buff, lwrb_evt_fn fn);
+uint8_t     lwrb_init(LWRB_VOLATILE lwrb_t *buff, void *buffdata, size_t size);
+uint8_t     lwrb_is_ready(LWRB_VOLATILE lwrb_t *buff);
+void        lwrb_free(LWRB_VOLATILE lwrb_t *buff);
+void        lwrb_reset(LWRB_VOLATILE lwrb_t *buff);
+void        lwrb_set_evt_fn(LWRB_VOLATILE lwrb_t *buff, lwrb_evt_fn fn);
 
 /* Read/Write functions */
-size_t      lwrb_write(LWRB_VOLATILE lwrb_t* buff, const void* data, size_t btw);
-size_t      lwrb_read(LWRB_VOLATILE lwrb_t* buff, void* data, size_t btr);
-size_t      lwrb_peek(LWRB_VOLATILE lwrb_t* buff, size_t skip_count, void* data, size_t btp);
+size_t      lwrb_write(LWRB_VOLATILE lwrb_t *buff, const void *data, size_t btw);
+size_t      lwrb_read(LWRB_VOLATILE lwrb_t *buff, void *data, size_t btr);
+size_t      lwrb_peek(LWRB_VOLATILE lwrb_t *buff, size_t skip_count, void *data, size_t btp);
 
 /* Buffer size information */
-size_t      lwrb_get_free(LWRB_VOLATILE lwrb_t* buff);
-size_t      lwrb_get_full(LWRB_VOLATILE lwrb_t* buff);
+size_t      lwrb_get_free(LWRB_VOLATILE lwrb_t *buff);
+size_t      lwrb_get_full(LWRB_VOLATILE lwrb_t *buff);
 
 /* Read data block management */
-void*       lwrb_get_linear_block_read_address(LWRB_VOLATILE lwrb_t* buff);
-size_t      lwrb_get_linear_block_read_length(LWRB_VOLATILE lwrb_t* buff);
-size_t      lwrb_skip(LWRB_VOLATILE lwrb_t* buff, size_t len);
+void       *lwrb_get_linear_block_read_address(LWRB_VOLATILE lwrb_t *buff);
+size_t      lwrb_get_linear_block_read_length(LWRB_VOLATILE lwrb_t *buff);
+size_t      lwrb_skip(LWRB_VOLATILE lwrb_t *buff, size_t len);
 
 /* Write data block management */
-void*       lwrb_get_linear_block_write_address(LWRB_VOLATILE lwrb_t* buff);
-size_t      lwrb_get_linear_block_write_length(LWRB_VOLATILE lwrb_t* buff);
-size_t      lwrb_advance(LWRB_VOLATILE lwrb_t* buff, size_t len);
+void       *lwrb_get_linear_block_write_address(LWRB_VOLATILE lwrb_t *buff);
+size_t      lwrb_get_linear_block_write_length(LWRB_VOLATILE lwrb_t *buff);
+size_t      lwrb_advance(LWRB_VOLATILE lwrb_t *buff, size_t len);
 
 /**
  * \}
@@ -132,4 +134,4 @@ size_t      lwrb_advance(LWRB_VOLATILE lwrb_t* buff, size_t len);
 }
 #endif /* __cplusplus */
 
-#endif /* LWRB_HDR_H */
+#endif /* __LWRB_HDR_H__ */

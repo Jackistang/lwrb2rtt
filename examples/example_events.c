@@ -6,18 +6,21 @@
  * \brief           Buffer event function
  */
 void
-my_buff_evt_fn(lwrb_t* buff, lwrb_evt_type_t type, size_t len) {
-    switch (type) {
-        case LWRB_EVT_RESET:
-            rt_kprintf("[EVT] Buffer reset event!\r\n");
-            break;
-        case LWRB_EVT_READ:
-            rt_kprintf("[EVT] Buffer read event: %d byte(s)!\r\n", (int)len);
-            break;
-        case LWRB_EVT_WRITE:
-            rt_kprintf("[EVT] Buffer write event: %d byte(s)!\r\n", (int)len);
-            break;
-        default: break;
+my_buff_evt_fn(lwrb_t *buff, lwrb_evt_type_t type, size_t len)
+{
+    switch (type)
+    {
+    case LWRB_EVT_RESET:
+        rt_kprintf("[EVT] Buffer reset event!\r\n");
+        break;
+    case LWRB_EVT_READ:
+        rt_kprintf("[EVT] Buffer read event: %d byte(s)!\r\n", (int)len);
+        break;
+    case LWRB_EVT_WRITE:
+        rt_kprintf("[EVT] Buffer write event: %d byte(s)!\r\n", (int)len);
+        break;
+    default:
+        break;
     }
 }
 

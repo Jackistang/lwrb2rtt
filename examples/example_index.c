@@ -21,7 +21,8 @@ void lwrb2rtt_example_index(void)
     /* Try to read buffer */
     /* len holds number of bytes read */
     /* Read until len == 0, when buffer is empty */
-    while ((len = lwrb_read(&buff, data, sizeof(data))) > 0) {
+    while ((len = lwrb_read(&buff, data, sizeof(data))) > 0)
+    {
         rt_kprintf("Successfully read %d bytes\r\n", (int)len);
     }
 }
