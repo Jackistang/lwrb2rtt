@@ -6,6 +6,8 @@ lwrb2rtt 是一个轻量级的环形缓冲区管理软件包，提供了通用�
 
 原工程地址：https://github.com/MaJerle/lwrb/tree/develop
 
+项目文档：https://docs.majerle.eu/projects/lwrb/en/latest/
+
 ## 1.1 特点
 
 - 用 ANSI C99 编写，与 `size_t` 大小的数据类型兼容。

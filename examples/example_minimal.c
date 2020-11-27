@@ -8,9 +8,6 @@ void lwrb2rtt_example_minimal(void)
     lwrb_t buff;
     uint8_t buff_data[8];
 
-    /* Application variables */
-    uint8_t data[2];     /* Application working data */
-
     /* Application code ... */
     lwrb_init(&buff, buff_data, sizeof(buff_data)); /* Initialize buffer */
 
