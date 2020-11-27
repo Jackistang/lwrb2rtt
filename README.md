@@ -37,7 +37,20 @@ lwrb2rtt 遵循 MIT 许可。
 
 无依赖
 
-# 2. 如何使用 lwrb2rtt
+# 2. 如何打开 lwrb2rtt
+
+使用 lwrb2rtt 需要在 RT-Thread 的包管理器中选择它，具体路径如下：
+
+```
+RT-Thread online packages
+	tools packages --->
+		[*] lwrb2rtt: Lightweight ring buffer manager. --->
+			[*] Enable lwrb2rtt samples
+```
+
+- `Enable lwrb2rtt samples`: 开启 lwrb2rtt 例程。
+
+然后让 RT-Thread 的包管理器自动更新，或者使用 `pkgs --update` 命令更新到 BSP 中。
 
 # 3. 联系方式 & 感谢
 
