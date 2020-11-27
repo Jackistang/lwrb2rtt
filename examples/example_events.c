@@ -9,13 +9,13 @@ void
 my_buff_evt_fn(lwrb_t* buff, lwrb_evt_type_t type, size_t len) {
     switch (type) {
         case LWRB_EVT_RESET:
-            printf("[EVT] Buffer reset event!\r\n");
+            rt_kprintf("[EVT] Buffer reset event!\r\n");
             break;
         case LWRB_EVT_READ:
-            printf("[EVT] Buffer read event: %d byte(s)!\r\n", (int)len);
+            rt_kprintf("[EVT] Buffer read event: %d byte(s)!\r\n", (int)len);
             break;
         case LWRB_EVT_WRITE:
-            printf("[EVT] Buffer write event: %d byte(s)!\r\n", (int)len);
+            rt_kprintf("[EVT] Buffer write event: %d byte(s)!\r\n", (int)len);
             break;
         default: break;
     }
