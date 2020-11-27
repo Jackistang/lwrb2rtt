@@ -31,11 +31,11 @@
  * Author:          Tilen MAJERLE <tilen@majerle.eu>
  * Version:         v2.0.1
  */
-#include "lwrb/lwrb.h"
-
+#include "lwrb.h"
+#include <rtthread.h>
 /* Memory set and copy functions */
-#define BUF_MEMSET                      memset
-#define BUF_MEMCPY                      memcpy
+#define BUF_MEMSET                      rt_memset
+#define BUF_MEMCPY                      rt_memcpy
 
 #define BUF_MAGIC1                      (0xDEADBEEF)
 #define BUF_MAGIC2                      (~0xDEADBEEF)
